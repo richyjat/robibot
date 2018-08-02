@@ -17,15 +17,11 @@
     },
     "keywords": [
     "heroku",
-    "discord.js"
+    "discord.io"
   ],
-    "author": "synicalsyntax",
+    "author": "pepyta",
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/pepyta/robibot/issues"
-    },
-    "homepage": "https://github.com/pepyta/robibot#readme",
     "dependencies": {
-        "discord.js": "^11.3.0",
+        "discord.io": "^2.5.3",
     }
 }
