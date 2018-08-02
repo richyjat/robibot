@@ -27,5 +27,6 @@
   "homepage": "https://github.com/pepyta/robibot#readme",
   "dependencies": {
     "discord.js": "^11.3.0"
+	"ffmpeg": "^0.0.4"
   }
 }
