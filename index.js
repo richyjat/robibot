@@ -5,9 +5,9 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setPresence({
             game: {
-                name: 'with discord.js'
+                name: 'with pepyta\'s kolbice'
             },
-            status: 'idle'
+            status: 'online'
         })
         .then(console.log)
         .catch(console.error);
