@@ -6,7 +6,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
     client.user.setPresence({
             game: {
-                name: 'with ${sucky}\'s kolbice'
+                name: `with ${sucky}\'s kolbice`
             },
             status: 'online'
         })
@@ -20,16 +20,16 @@ client.on('message', msg => {
     } else if (msg.content === '10 dollars') {
         msg.reply('I sucky sucky');
         var sucky = msg.author;
-        
+
         client.user.setPresence({
-            game: {
-                name: 'with ${sucky}\'s kolbice'
-            },
-            status: 'online'
-        })
-        .then(console.log)
-        .catch(console.error);
-        
+                game: {
+                    name: `with ${sucky}\'s kolbice`
+                },
+                status: 'online'
+            })
+            .then(console.log)
+            .catch(console.error);
+
     }
 });
 
