@@ -6,6 +6,6 @@
 	"author": "Gál Péter",
 	"dependencies": {
 		"discord.io": "2.5.3",
-		"winston": "3.0.0"
+		"winston": "2.4.3"
 	}
 }
