@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-var isReady = true;
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -20,21 +19,6 @@ client.on('message', msg => {
         msg.reply('Pong!');
     }
 
-});
-
-
-client.on('message', message => {
-    if (isReady && message.content === 'itt vagy?') {
-        isReady = false;
-        var voiceChannel = message.member.voiceChannel;
-        voiceChannel.join().then(connection => {
-            const dispatcher = connection.playFile('https://raw.githubusercontent.com/pepyta/robibot/master/itt_vagyok.mp3');
-            dispatcher.on("end", end => {
-                voiceChannel.leave();
-            });
-        }).catch(err => console.log(err));
-        isReady = true;
-    }
 });
 
 
