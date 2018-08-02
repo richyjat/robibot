@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+var isReady = true;
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -22,26 +23,19 @@ client.on('message', msg => {
 });
 
 
-client.on('message', async message => {
-    // Voice only works in guilds, if the message does not come from a guild,
-    // we ignore it
-    if (!message.guild) return;
-
-    if (message.content === '/join') {
-        // Only try to join the sender's voice channel if they are in one themselves
-        if (message.member.voiceChannel) {
-            const connection = await message.member.voiceChannel.join();
-            const dispatcher = connection.play('https://raw.githubusercontent.com/pepyta/robibot/master/itt_vagyok.mp3');
-
-            dispatcher.on('finish', () => {
-                console.log('Finished playing!');
+bot.on('message', message => {
+    if (isReady && message.content === 'itt vagy?') {
+        isReady = false;
+        var voiceChannel = message.member.voiceChannel;
+        voiceChannel.join().then(connection => {
+            const dispatcher = connection.playFile('https://raw.githubusercontent.com/pepyta/robibot/master/itt_vagyok.mp3');
+            dispatcher.on("end", end => {
+                voiceChannel.leave();
             });
-
-            dispatcher.destroy(); // end the stream
-        } else {
-            message.reply('You need to join a voice channel first!');
-        }
+        }).catch(err => console.log(err));
+        isReady = true;
     }
 });
+
 
 client.login('NDc0NTA1MTMzMjQyMzE4ODQ5.DkSd6g.WT6zQO5nKCQ54AOGXxND4ELwEjU');
