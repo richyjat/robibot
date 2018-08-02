@@ -4,7 +4,7 @@ const client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   
-client.user.setPresence({ activity: { name: 'with pepyta\'s duck' }, status: 'idle' })
+client.user.setPresence({ game: { name: 'with pepyta\'s duck', type: 0 } });
   .then(console.log)
   .catch(console.error);
 });
