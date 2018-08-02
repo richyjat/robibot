@@ -1,8 +1,8 @@
 {
-“name”: “robit-bot”,
-“version”: “1.0.0”,
-“description”: “Soo dumb like Robi”,
-“main”: “bot.js”,
-“author”: “Gál Péter”,
-“dependencies”: {}
+	"name": "robit-bot",
+	"version": "1.0.0",
+	"description": "Soo dumb like Robi",
+	"main": "bot.js",
+	"author": "Gál Péter",
+	"dependencies": {}
 }
