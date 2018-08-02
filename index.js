@@ -30,12 +30,8 @@ client.on('message', message => {
     if (message.content === '/join') {
         // Only try to join the sender's voice channel if they are in one themselves
         if (message.member.voiceChannel) {
-            const connection = await message.member.voiceChannel.join();
+            const connection = message.member.voiceChannel.join();
             const dispatcher = connection.play('https://raw.githubusercontent.com/pepyta/robibot/master/itt_vagyok.mp3');
-            dispatcher.pause();
-            dispatcher.resume();
-
-            dispatcher.setVolume(0.5); // half the volume
 
             dispatcher.on('finish', () => {
                 console.log('Finished playing!');
