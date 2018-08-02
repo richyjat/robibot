@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const dispatcher = connection.play('https://github.com/pepyta/robibot/blob/master/itt_vagyok.m4a?raw=true');
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -27,7 +26,7 @@ client.on('message', async message => {
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voiceChannel) {
       const connection = await message.member.voiceChannel.join();
-	  
+	  const dispatcher = connection.play('https://github.com/pepyta/robibot/blob/master/itt_vagyok.m4a?raw=true');
 	  dispatcher.pause();
 	dispatcher.resume();
 
