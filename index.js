@@ -22,21 +22,10 @@ client.on('message', async message => {
   // we ignore it
   if (!message.guild) return;
 
-  if (message.content === '/join') {
+  if (message.content === 'itt vagy?') {
     // Only try to join the sender's voice channel if they are in one themselves
     if (message.member.voiceChannel) {
       const connection = await message.member.voiceChannel.join();
-	  const dispatcher = connection.play('https://github.com/pepyta/robibot/blob/master/itt_vagyok.m4a?raw=true');
-	  dispatcher.pause();
-	dispatcher.resume();
-
-	dispatcher.setVolume(0.5); // half the volume
-
-	dispatcher.on('finish', () => {
-	  console.log('Finished playing!');
-	});
-
-	dispatcher.destroy(); // end the stream
     } else {
       message.reply('You need to join a voice channel first!');
     }
