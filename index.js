@@ -19,7 +19,7 @@ client.on('message', msg => {
         msg.reply('10 dollars!');
     } else if (msg.content === '10 dollars') {
         msg.reply('I sucky sucky');
-        sucky = msg.author;
+        sucky = msg.author.username;
 
         client.user.setPresence({
                 game: {
