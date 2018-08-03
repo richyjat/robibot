@@ -19,7 +19,7 @@ client.on('message', msg => {
         msg.reply('10 dollars!');
     } else if (msg.content === '10 dollars') {
         msg.reply('I sucky sucky');
-        var sucky = msg.author;
+        sucky = msg.author;
 
         client.user.setPresence({
                 game: {
@@ -33,4 +33,4 @@ client.on('message', msg => {
     }
 });
 
-client.login('NDc0NTA1MTMzMjQyMzE4ODQ5.DkTeug.tFEmKjsi1oFGeQxTERJoaSihjuw');
+client.login('NDc0NTA1MTMzMjQyMzE4ODQ5.DkWf9Q.VymR_mDA6nRaCFuGjNlikbjHPQg');
