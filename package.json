@@ -1,7 +1,7 @@
 {
-    "name": "robi-bot",
+    "name": "kolibce-robibot",
     "version": "1.0.0",
-    "description": "Soo dumb like Robi",
+    "description": "Kolbice bot",
     "main": "index.js",
     "engines": {
         "node": "8.x",
@@ -13,7 +13,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/pepyta/robibot.git"
+        "url": "git+https://github.com/synicalsyntax/discord.js-heroku.git"
     },
     "keywords": [
     "heroku",
@@ -21,7 +21,11 @@
   ],
     "author": "pepyta",
     "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/synicalsyntax/discord.js-heroku/issues"
+    },
+    "homepage": "https://github.com/synicalsyntax/discord.js-heroku#readme",
     "dependencies": {
-        "discord.js": "11.3.0"
+        "discord.js": "^11.3.0"
     }
 }
