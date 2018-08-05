@@ -75,14 +75,16 @@ client.on('message', msg => {
             let role = msg.guild.roles.find("name", "Lávkómás");
             msg.member.addRole(role).catch(console.error);
 
-            var d = new Date() + 3600000;
+            /*var d = new Date() + 3600000;
             var m = d.getMinutes();
             var h = d.getHours();
             var day = d.getDay();
             var month = d.getMonth();
             var year = d.getYear();
 
-            msg.reply(`Az időpontja ${year}. ${month}. ${day}. ${h}:${m}-ig szól.`);
+            msg.reply(`Az időpontja ${year}. ${month}. ${day}. ${h}:${m}-ig szól.`);*/
+
+            msg.reply('Az időpontja egy órán keresztül szól.');
 
             setTimeout(szerelemdoktorremove(role), 3600000);
         } else {
