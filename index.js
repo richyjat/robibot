@@ -35,15 +35,28 @@ client.on('message', msg => {
 });
 
 client.on('message', message => {
-    if (isReady && message.content === 'reee') {
-        isReady = false;
-        var voiceChannel = message.member.voiceChannel;
-        voiceChannel.join().then(connection => {
-            const dispatcher = connection.playFile('./itt_vagyok.mp3');
-            dispatcher.on("end", end => {
-                voiceChannel.leave();
-            });
-        });
+    // Voice only works in guilds, if the message does not come from a guild,
+    // we ignore it
+    if (!message.guild) return;
+
+    if (message.content === '/join') {
+        // Only try to join the sender's voice channel if they are in one themselves
+        if (message.member.voiceChannel) {
+            // check if there is already a voice connection
+            if (message.member.voiceChannel.connection) {
+                console.log('conn status: ' + message.member.voiceChannel.connection.status);
+            }
+            console.log('is joinable: ' + message.member.voiceChannel.joinable);
+            if (message.member.voiceChannel.joinable) {
+                message.member.voiceChannel.join()
+                    .then(connection => { // Connection is an instance of VoiceConnection
+                        message.reply('I have successfully connected to the channel!');
+                    })
+                    .catch(console.error);
+            }
+        } else {
+            message.reply('You need to join a voice channel first!');
+        }
     }
 });
 
