@@ -88,6 +88,7 @@ client.on('message', msg => {
         } else {
             let myRole = msg.guild.roles.find("name", "Lávkómás");
             if (msg.member.roles.has(myRole.id)) {} else {
+                msg.delete();
                 msg.reply('A szerelem doktor számát hívta. Nincs joga ahhoz hogy vele beszélhessen. Kérjen időpontot! (/engedjbepatrik)');
             }
         }
