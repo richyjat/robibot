@@ -100,20 +100,6 @@ function initialCap(field) {
     return field
 }
 
-function conversationpatterns() {
-    for (i = 0; i < convpatterns.length; i++) {
-        re = new RegExp(convpatterns[i][0], "i");
-        if (re.test(uinput)) {
-            len = convpatterns[i].length - 1;
-            index = Math.ceil(len * Math.random());
-            reply = convpatterns[i][index];
-            soutput = uinput.replace(re, reply);
-            soutput = initialCap(soutput);
-            msg.reply(soutput);
-            break;
-        }
-    }
-}
 client.on('message', msg => {
     if (msg.channel.id == '473941158851248189') {
         var objDate = new Date();
@@ -142,7 +128,18 @@ client.on('message', msg => {
     }
     if (msg.channel.id == '475777714511413248' && msg.member.id == '474505133242318849') {
         uinput = msg.content;
-        conversationpatterns();
+        for (i = 0; i < convpatterns.length; i++) {
+            re = new RegExp(convpatterns[i][0], "i");
+            if (re.test(uinput)) {
+                len = convpatterns[i].length - 1;
+                index = Math.ceil(len * Math.random());
+                reply = convpatterns[i][index];
+                soutput = uinput.replace(re, reply);
+                soutput = initialCap(soutput);
+                msg.reply(soutput);
+                break;
+            }
+        }
     }
     if (msg.content === 'sucky sucky') {
         msg.reply('10 dollars!');
