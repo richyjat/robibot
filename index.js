@@ -74,6 +74,7 @@ client.on('message', msg => {
         var objDate = new Date();
         var hours = objDate.getHours();
         if (hours >= 21 && hours <= 22) {
+            msg.reply(hours);
             if (msg.content == '/engedjbepatrik') {
                 let role = msg.guild.roles.find("name", "Lávkómás");
                 msg.member.addRole(role, msg).catch(console.error);
