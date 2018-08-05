@@ -140,7 +140,7 @@ client.on('message', msg => {
             msg.reply('A szerelem doktor csak 21-22 közt rendel.');
         }
     }
-    if (msg.channel.id == '475777714511413248') {
+    if (msg.channel.id == '475777714511413248' && msg.member.id == '474505133242318849') {
         uinput = msg.content;
         conversationpatterns();
     }
