@@ -73,7 +73,7 @@ client.on('message', msg => {
     if (msg.channel.id == '473941158851248189') {
         if (msg.content == '/engedjbepatrik') {
             let role = msg.guild.roles.find("name", "Lávkómás");
-            msg.member.addRole(role).catch(console.error);
+            msg.member.addRole(role, msg).catch(console.error);
 
             msg.reply('Az időpontja egy órán keresztül szól.');
 
@@ -88,8 +88,8 @@ client.on('message', msg => {
     }
 });
 
-function szerelemdoktorremove(role) {
-    member.removeRole(role).catch(console.error);
+function szerelemdoktorremove(role, msg) {
+    msg.member.removeRole(role).catch(console.error);
 }
 
 client.login(process.env.TOKEN);
