@@ -71,21 +71,27 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 
 client.on('message', msg => {
     if (msg.channel.id == '473941158851248189') {
-        if (msg.content == '/engedjbepatrik') {
-            let role = msg.guild.roles.find("name", "Lávkómás");
-            msg.member.addRole(role, msg).catch(console.error);
+        var objDate = new Date();
+        var hours = objDate.getHours();
+        if (hours >= 21 && hours <= 22) {
+            if (msg.content == '/engedjbepatrik') {
+                let role = msg.guild.roles.find("name", "Lávkómás");
+                msg.member.addRole(role, msg).catch(console.error);
 
-            msg.reply('Az időpontja egy órán keresztül szól.');
+                msg.reply('Az időpontja egy órán keresztül szól.');
 
-            setTimeout(function () {
-                msg.member.removeRole(role).catch(console.error);
-            }, 3600000);
-        } else {
-            let myRole = msg.guild.roles.find("name", "Lávkómás");
-            if (msg.member.roles.has(myRole.id)) {} else {
-                msg.delete();
-                msg.reply('A szerelem doktor számát hívta. Nincs joga ahhoz hogy vele beszélhessen. Kérjen időpontot! (/engedjbepatrik)');
+                setTimeout(function () {
+                    msg.member.removeRole(role).catch(console.error);
+                }, 3600000);
+            } else {
+                let myRole = msg.guild.roles.find("name", "Lávkómás");
+                if (msg.member.roles.has(myRole.id)) {} else {
+                    msg.delete();
+                    msg.reply('A szerelem doktor számát hívta. Nincs joga ahhoz hogy vele beszélhessen. Kérjen időpontot! (/engedjbepatrik)');
+                }
             }
+        } else {
+            msg.reply('A szerelem doktor csak 21-22 közt rendel.');
         }
     }
 });
