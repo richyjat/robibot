@@ -51,6 +51,10 @@ client.on('message', message => {
                 message.member.voiceChannel.join()
                     .then(connection => { // Connection is an instance of VoiceConnection
                         message.reply('I have successfully connected to the channel!');
+                        const dispatcher = connection.playFile('./itt_vagyok.mp3');
+                        dispatcher.on('end', () => {
+                            // The song has finished
+                        });
                     })
                     .catch(console.error);
             }
