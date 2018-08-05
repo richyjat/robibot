@@ -51,11 +51,10 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 });
 
 client.on('message', msg => {
-    if (msg.author.client) return;
     if (msg.channel.id == '473941158851248189') {
         var objDate = new Date();
         var hours = objDate.getHours();
-        if (hours >= 19 && hours <= 20) {
+        if ((hours >= 19 && hours <= 20) || msg.member.id == '474505133242318849') {
             if (msg.content == '/engedjbepatrik') {
                 let role = msg.guild.roles.find("name", "Lávkómás");
                 msg.member.addRole(role, msg).catch(console.error);
