@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 var sucky = 'pepyta';
+var isReady = true;
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -33,4 +34,17 @@ client.on('message', msg => {
     }
 });
 
-client.login(process.env.TOKEN);
+bot.on('message', message => {
+    if (isReady && message.content === 'reee') {
+        isReady = false;
+        var voiceChannel = message.member.voiceChannel;
+        voiceChannel.join().then(connection => {
+            const dispatcher = connection.playFile('./itt_vagyok.mp3');
+            dispatcher.on("end", end => {
+                voiceChannel.leave();
+            });
+        }).catch(err => console.log(err));
+    }
+});
+
+client.login('NDc0NTA1MTMzMjQyMzE4ODQ5.DkWf9Q.VymR_mDA6nRaCFuGjNlikbjHPQg');
