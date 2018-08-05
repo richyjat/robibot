@@ -77,7 +77,9 @@ client.on('message', msg => {
 
             msg.reply('Az időpontja egy órán keresztül szól.');
 
-            setTimeout(szerelemdoktorremove(role, msg), 3600000);
+            setTimeout(function () {
+                msg.member.removeRole(role).catch(console.error);
+            }, 3600000);
         } else {
             let myRole = msg.guild.roles.find("name", "Lávkómás");
             if (msg.member.roles.has(myRole.id)) {} else {
@@ -87,9 +89,5 @@ client.on('message', msg => {
         }
     }
 });
-
-function szerelemdoktorremove(role, msg) {
-    msg.member.removeRole(role).catch(console.error);
-}
 
 client.login(process.env.TOKEN);
