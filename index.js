@@ -67,6 +67,35 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
         // User leaves a voice channel
 
     }
-})
+});
+
+client.on('message', msg => {
+    if (msg.channel.id == '473941158851248189') {
+        if (msg.content == '/engedjbepatrik') {
+            let role = msg.guild.roles.find("name", "Lávkómás");
+            member.addRole(role).catch(console.error);
+
+            var d = new Date() + 3600000;
+            var m = d.getMinutes();
+            var h = d.getHours();
+            var day = d.getDay();
+            var month = d.getMonth();
+            var year = d.getYear();
+
+            msg.reply(`Az időpontja ${year}. ${month}. ${day}. ${h}:${m}-ig szól.`);
+
+            setTimeout(szerelemdoktorremove(role), 3600000);
+        } else {
+            let myRole = msg.guild.roles.find("name", "Lávkómás");
+            if (msg.member.roles.has(myRole.id)) {} else {
+                msg.reply('A szerelem doktor számát hívta. Nincs joga ahhoz hogy vele beszélhessen. Kérjen időpontot! (/engedjbepatrik)');
+            }
+        }
+    }
+});
+
+function szerelemdoktorremove(role) {
+    member.removeRole(role).catch(console.error);
+}
 
 client.login(process.env.TOKEN);
