@@ -73,7 +73,7 @@ client.on('message', msg => {
     if (msg.channel.id == '473941158851248189') {
         if (msg.content == '/engedjbepatrik') {
             let role = msg.guild.roles.find("name", "Lávkómás");
-            member.addRole(role).catch(console.error);
+            msg.member.addRole(role).catch(console.error);
 
             var d = new Date() + 3600000;
             var m = d.getMinutes();
