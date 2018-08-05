@@ -64,4 +64,42 @@ client.on('message', message => {
     }
 });
 
+
+
+bot.on('voiceStateUpdate', (oldMember, newMember) => {
+    let newUserChannel = newMember.voiceChannel
+    let oldUserChannel = oldMember.voiceChannel
+
+
+    if (oldUserChannel === undefined && newUserChannel !== undefined) {
+
+
+        if (newMember.voiceChannel) {
+            // check if there is already a voice connection
+            if (newMember.voiceChannel.connection) {
+                console.log('conn status: ' + newMember.voiceChannel.connection.status);
+            }
+            console.log('is joinable: ' + newMember.voiceChannel.joinable);
+            if (newMember.voiceChannel.joinable) {
+                newMember.voiceChannel.join()
+                    .then(connection => { // Connection is an instance of VoiceConnection
+                        message.reply('I have successfully connected to the channel!');
+                        const dispatcher = connection.playFile('./itt_vagyok.mp3');
+                        dispatcher.on('end', () => {
+                            // The song has finished
+                        });
+                    })
+                    .catch(console.error);
+            }
+        } else {
+            newMember.reply('You need to join a voice channel first!');
+        }
+
+    } else if (newUserChannel === undefined) {
+
+        // User leaves a voice channel
+
+    }
+})
+
 client.login(process.env.TOKEN);
