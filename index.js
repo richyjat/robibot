@@ -77,7 +77,7 @@ client.on('message', msg => {
 
             msg.reply('Az időpontja egy órán keresztül szól.');
 
-            setTimeout(szerelemdoktorremove(role), 3600000);
+            setTimeout(szerelemdoktorremove(role, msg), 3600000);
         } else {
             let myRole = msg.guild.roles.find("name", "Lávkómás");
             if (msg.member.roles.has(myRole.id)) {} else {
