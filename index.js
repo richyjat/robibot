@@ -43,7 +43,7 @@ client.on('message', message => {
             dispatcher.on("end", end => {
                 voiceChannel.leave();
             });
-        }).catch(err => console.log(err));
+        });
     }
 });
 
