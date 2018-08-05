@@ -73,7 +73,7 @@ client.on('message', msg => {
     if (msg.channel.id == '473941158851248189') {
         var objDate = new Date();
         var hours = objDate.getHours();
-        if (hours >= 21 && hours <= 22) {
+        if (hours >= 19 && hours <= 20) {
             msg.reply(hours);
             if (msg.content == '/engedjbepatrik') {
                 let role = msg.guild.roles.find("name", "Lávkómás");
