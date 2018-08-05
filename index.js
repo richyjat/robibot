@@ -15,25 +15,6 @@ client.on('ready', () => {
         .catch(console.error);
 });
 
-client.on('message', msg => {
-    if (msg.content === 'sucky sucky') {
-        msg.reply('10 dollars!');
-    } else if (msg.content === '10 dollars') {
-        msg.reply('I sucky sucky');
-        sucky = msg.author.username;
-
-        client.user.setPresence({
-                game: {
-                    name: `with ${sucky}\'s kolbice`
-                },
-                status: 'online'
-            })
-            .then(console.log)
-            .catch(console.error);
-
-    }
-});
-
 client.on('voiceStateUpdate', (oldMember, newMember) => {
     let newUserChannel = newMember.voiceChannel
     let oldUserChannel = oldMember.voiceChannel
@@ -70,11 +51,11 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 });
 
 client.on('message', msg => {
+    if (message.author.client) return;
     if (msg.channel.id == '473941158851248189') {
         var objDate = new Date();
         var hours = objDate.getHours();
-        if (hours >= 19 && hours <= 20) {
-            msg.reply(hours);
+        if (hours >= 19 && hours <= 20 && msg.member.id !== '474505133242318849') {
             if (msg.content == '/engedjbepatrik') {
                 let role = msg.guild.roles.find("name", "Lávkómás");
                 msg.member.addRole(role, msg).catch(console.error);
@@ -94,6 +75,23 @@ client.on('message', msg => {
         } else {
             msg.reply('A szerelem doktor csak 21-22 közt rendel.');
         }
+    }
+
+    if (msg.content === 'sucky sucky') {
+        msg.reply('10 dollars!');
+    } else if (msg.content === '10 dollars') {
+        msg.reply('I sucky sucky');
+        sucky = msg.author.username;
+
+        client.user.setPresence({
+                game: {
+                    name: `with ${sucky}\'s kolbice`
+                },
+                status: 'online'
+            })
+            .then(console.log)
+            .catch(console.error);
+
     }
 });
 
