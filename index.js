@@ -83,7 +83,6 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
             if (newMember.voiceChannel.joinable) {
                 newMember.voiceChannel.join()
                     .then(connection => { // Connection is an instance of VoiceConnection
-                        newMember.reply('I have successfully connected to the channel!');
                         const dispatcher = connection.playFile('./itt_vagyok.mp3');
                         dispatcher.on('end', () => {
                             // The song has finished
@@ -91,8 +90,6 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
                     })
                     .catch(console.error);
             }
-        } else {
-            newMember.reply('You need to join a voice channel first!');
         }
 
     } else if (newUserChannel === undefined) {
