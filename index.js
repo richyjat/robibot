@@ -51,7 +51,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 });
 
 client.on('message', msg => {
-    if (message.author.client) return;
+    if (msg.author.client) return;
     if (msg.channel.id == '473941158851248189') {
         var objDate = new Date();
         var hours = objDate.getHours();
@@ -73,6 +73,7 @@ client.on('message', msg => {
                 }
             }
         } else {
+            msg.delete();
             msg.reply('A szerelem doktor csak 21-22 közt rendel.');
         }
     }
