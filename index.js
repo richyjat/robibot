@@ -34,7 +34,7 @@ client.on('message', msg => {
     }
 });
 
-bot.on('message', message => {
+client.on('message', message => {
     if (isReady && message.content === 'reee') {
         isReady = false;
         var voiceChannel = message.member.voiceChannel;
