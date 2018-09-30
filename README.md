@@ -1,20 +1,33 @@
-# discord-HathorBot
-User-friendly and easy to use music bot for your discord server. This project is still a Work In Progress and is not a finished product. Add me at Mesmaroth#4335 on discord for any questions, guide to help set it up, or to help me make this bot better.
+# RobiBot
+Easy to use Discord Music bot that keeps running on [Glitch.com](https://glitch.com)
 
 Library: [Discord.js](https://discord.js.org)
 
 ## Installation:
+  - Login into Glitch with Gihtub
+  - Create a new project
+  - Import my repo (pepyta/robibot)
+  - Set up your .env file (watch below)
+  - Set up an Uptime robot page (watch below)
 
-### Windows
-  - Install [Node.JS](https://nodejs.org/en/) 6.0 or greater
-  - Install [Python v2.7.x](https://www.python.org/downloads/)
-  - Install [Visual C++ Build Tools](http://landinghub.visualstudio.com/visual-cpp-build-tools) using **Default Install**
-  - Install [node-gyp](https://github.com/nodejs/node-gyp) (Open command prompt and enter `npm install -g node-gyp`)
-  - Install [FFMPEG static build](https://ffmpeg.zeranoe.com/builds/) to PATH. [Tutorial to install FFMPEG on Windows](http://www.wikihow.com/Install-FFmpeg-on-Windows)
-  - Run `install.bat` to install required modules from the NPM framework
-  - Enter bot token and other keys in `botLogin.js`
-  - Run `run.bat` to start the bot
+## Set up .env file
+  A .env file is where you can store your private informations.
+  Here is the plain .env file:
+  `TOKEN=*YOUR DISCORD BOT TOKEN*
+  YOUTUBE_API=*YOUR YOUTUBE API TOKEN*
+  PROJECT_DOMAIN=*YOUR PROJECT NAME (WITHOUT .glitch.me)`
+  
+  ### Getting Discord Bot token
+  [Discord developers page](https://discordapp.com/developers) > Create an application > Bot > Build a Bot > Token > Copy
+  
+  ### Getting Youtube API token
+  [Youtube Data API V3](https://console.cloud.google.com/apis/api/youtube.googleapis.com/overview) > Enable API
+  [Google API Dashboard](console.cloud.google.com/apis/credentials) > Create credentials > API key > Copy
 
+## Setting up UptimeRobot
+  [UptimeRobot](https://uptimerobot.com) > Register > Add New Monitor > Monitor Type: HTTP(s) > Friendly Name: Whatever you want > URL (or IP): Your glitch.me address for you project > Monitoring Interval: default (every 5 minutes)
+  
+## Invite your Bot!
 
 ## Commands:
 
