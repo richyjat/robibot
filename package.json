@@ -1,30 +1,28 @@
 {
-    "name": "robi-bot",
-    "version": "1.0.0",
-    "description": "Soo dumb like Robi",
-    "main": "index.js",
-    "engines": {
-        "node": "8.x",
-        "npm": "*"
-    },
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/pepyta/robibot.git"
-    },
-    "keywords": [
-    "heroku",
-    "discord.js"
-  ],
-    "author": "pepyta",
-    "license": "MIT",
-    "dependencies": {
-        "discord.js": "11.3.0",
-        "ffmpeg": "0.0.4",
-        "ffmpeg-binaries": "4.0.0",
-        "opusscript": "0.0.6"
-    }
+  "name": "discord-hathorbot",
+  "version": "2.6.0",
+  "description": "Discord music bot",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "discord.js": "^11.4.2",
+    "erlpack": "^0.1.2",
+    "node-opus": "^0.3.0",
+    "uws": "^99.0.0",
+    "youtube-search": "^1.1.1",
+    "ytdl-core": "^0.25.2",
+    "opusscript": "^0.0.6",
+    "pako": "^1.0.6",
+    "tweetnacl": "^1.0.0",
+    "ws": "^6.0.0",
+    "express": "4.16.3"
+  },
+  "author": "Robert (Mesmaroth)",
+  "license": "MIT",
+  "devDependencies": {
+    "opusscript": "0.0.6"
+  }
 }
