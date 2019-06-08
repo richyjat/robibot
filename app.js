@@ -32,11 +32,20 @@ const botPreferenceFile = path.join(configPath, 'preference.json');
 app.get("/", (request, response) => {
   console.log(Date.now() + " Ping Received");
   response.sendStatus(200);
+
+  // Steam library to rank Discord
+	var steamGamesLastUpdated;
+
+	bot.guilds.forEach(function(guild){
+		guild.members.forEach(function(member){
+			console.log(member.user)
+		})
+	})
 });
 
 app.listen(8080);
 setInterval(() => {
-http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+	http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
 }, 6000);
 
 
@@ -78,15 +87,6 @@ var playing = false;
 var stopped = false;
 var stayOnQueue = false;
 var looping = false;
-
-// Steam library to rank Discord
-var steamGamesLastUpdated;
-
-bot.guilds.forEach(function(guild){
-	guild.members.forEach(function(member){
-		console.log(member.user)
-	})
-})
 
 // Check existence of folders
 var folderPaths = [localPath, playlistPath, tempFilesPath, logsPath];
