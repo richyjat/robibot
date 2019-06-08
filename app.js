@@ -6,6 +6,9 @@ const async = require('async');
 const URL = require('url');
 const bot = new Discord.Client();
 
+const SteamAPI = require('steamapi');
+const steam = new SteamAPI(process.env.STEAM);
+
 const http = require('http');
 const express = require('express');
 const app = express();
@@ -75,6 +78,15 @@ var playing = false;
 var stopped = false;
 var stayOnQueue = false;
 var looping = false;
+
+// Steam library to rank Discord
+var steamGamesLastUpdated;
+
+bot.guilds.forEach(function(guild){
+	guild.members.forEach(function(member){
+		console.log(member.user)
+	})
+})
 
 // Check existence of folders
 var folderPaths = [localPath, playlistPath, tempFilesPath, logsPath];
